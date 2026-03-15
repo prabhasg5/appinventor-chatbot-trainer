@@ -1,0 +1,21 @@
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Prototype outputs
+prototype/dist/
+
+# OS/editor noise
+.DS_Store
+*.log
+.idea/
+.vscode/
