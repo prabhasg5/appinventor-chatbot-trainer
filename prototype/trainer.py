@@ -1,6 +1,3 @@
-"""
-Thin-slice prototype: ingest text, build a FAISS index, answer with retrieval + LLM (optional), export a bundle for an App Inventor extension.
-"""
 import argparse
 import json
 import shutil
@@ -195,22 +192,22 @@ def query_endpoint(payload: QueryRequest) -> Dict[str, object]:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="App Inventor chatbot trainer prototype")
     sub = parser.add_subparsers(dest="command", required=True)
-
+#ingest
     ingest = sub.add_parser("ingest", help="Build the embedding index from text files")
     ingest.add_argument("--data", required=True, help="Path to a file or directory of .txt/.md docs")
     ingest.add_argument("--chunk-size", type=int, default=480)
     ingest.add_argument("--overlap", type=int, default=64)
     ingest.set_defaults(func=ingest_command)
-
+#query
     query = sub.add_parser("query", help="Ask a question against the built index")
     query.add_argument("--question", required=True)
     query.add_argument("--top-k", type=int, default=4)
     query.set_defaults(func=query_command)
-
+#export
     export = sub.add_parser("export", help="Copy artifacts into a bundle directory and zip it")
     export.add_argument("--bundle-path", required=True, help="Destination directory for the bundle")
     export.set_defaults(func=export_command)
-
+#serve
     serve = sub.add_parser("serve", help="Run the FastAPI server")
     serve.add_argument("--host", default="127.0.0.1")
     serve.add_argument("--port", type=int, default=8000)
@@ -224,7 +221,5 @@ def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
     args.func(args)
-
-
-if __name__ == "__main__":
+if __name__ =="__main__":
     main()
