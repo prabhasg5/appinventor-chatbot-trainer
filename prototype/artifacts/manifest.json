@@ -1,0 +1,7 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "generator_model": "local-slm-placeholder",
+  "chunk_size": 480,
+  "overlap": 64,
+  "top_k_default": 4
+}

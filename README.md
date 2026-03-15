@@ -31,6 +31,9 @@ This is a thin, demo-ready prototype: “PIC/PAC for chatbots.” Users upload t
    python prototype/trainer.py export --bundle-path prototype/dist/demo-bundle
    ```
 
+## Sample run (CLI)
+![Sample query result](Screenshot%202026-03-15%20at%209.20.26%E2%80%AFPM.png)
+
 ## Repo map
 - prototype/trainer.py — ingest, retrieve, local answer stub, bundle export, FastAPI.
 - prototype/requirements.txt — minimal deps (FAISS, sentence-transformers, FastAPI).
